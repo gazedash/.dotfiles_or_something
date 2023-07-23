@@ -284,7 +284,7 @@ require('telescope').setup {
 -- Enable telescope fzf native, if installed
 pcall(require('telescope').load_extension, 'fzf')
 
--- See `:help telescope.builtin`
+-- See `:help telescope.builtin
 vim.keymap.set('n', '<leader>?', require('telescope.builtin').oldfiles, { desc = '[?] Find recently opened files' })
 vim.keymap.set('n', '<leader><space>', require('telescope.builtin').buffers, { desc = '[ ] Find existing buffers' })
 vim.keymap.set('n', '<leader>/', function()
@@ -399,6 +399,8 @@ local on_attach = function(_, bufnr)
   vim.keymap.set("n", "<C-u>", "<C-u>zz")
   vim.keymap.set("n", "n", "nzzzv")
   vim.keymap.set("n", "N", "Nzzzv")
+
+vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
 
   nmap('<leader>rn', vim.lsp.buf.rename, '[R]e[n]ame')
   nmap('<leader>ca', vim.lsp.buf.code_action, '[C]ode [A]ction')
