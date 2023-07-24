@@ -1,6 +1,24 @@
 -- [[ Setting options ]]
 -- See `:help vim.o`
 
+-- ZZ to close window
+-- C-w = window mgmt, C-w j C-w k
+-- C-6, alternate file
+-- C-p, like vs code
+-- :Mason - install LSP
+-- :TSUpdate - update LSPs
+-- :Lazy - install vim plugin
+-- Git
+-- -- :Git push
+-- -- :G - Git
+-- -- cc commit
+-- -- s,u stage,unstage
+-- hop
+-- <leader>;
+-- <leader>hw
+-- Explorer
+-- <leader>pv, C-E
+
 vim.opt.tabstop = 4
 vim.opt.softtabstop = 4
 vim.opt.shiftwidth = 4
@@ -68,7 +86,7 @@ vim.o.completeopt = 'menuone,noselect'
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 
--- remove \n
+-- remove \n ? do I need it ?
 vim.keymap.set("n", "J", "mzJ`z")
 -- center on movement:
 vim.keymap.set("n", "<C-d>", "<C-d>zz")
@@ -76,6 +94,7 @@ vim.keymap.set("n", "<C-u>", "<C-u>zz")
 vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
 
+-- some vim quirks workarounds /start
 -- greatest remap ever
 -- what?
 vim.keymap.set("x", "<leader>p", [["_dP]])
@@ -86,6 +105,7 @@ vim.keymap.set({"n", "v"}, "<leader>y", [["+y]])
 vim.keymap.set("n", "<leader>Y", [["+Y]])
 
 vim.keymap.set({"n", "v"}, "<leader>d", [["_d]])
+-- some vim quirks workarounds /end
 
 -- This is going to get me cancelled
 vim.keymap.set("i", "<C-c>", "<Esc>")
@@ -104,13 +124,20 @@ vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><
 
 vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
 
-vim.keymap.set("n", "<leader><leader>", function()
-    -- what is so? source?
+vim.keymap.set("n", "<leader><leader>=", function()
+    -- it is source, like . ~/.zhsrc in bash
     vim.cmd("so")
 end)
 
 -- how to live without it? impossible
 vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
+
+vim.keymap.set("n", "<C-E>", function () 
+    if (vim.api.nvim_buf_get_option(0, "filetype")=="netrw") then
+        vim.cmd(":b")
+    else vim.cmd(":Ex")
+     end
+end)
 
 -- Keymaps for better default experience
 -- See `:help vim.keymap.set()`
