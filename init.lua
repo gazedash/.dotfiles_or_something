@@ -12,7 +12,9 @@ vim.opt.wrap = false
 
 vim.opt.swapfile = false
 vim.opt.backup = false
-vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
+
+vim.opt.undodir = os.getenv("UserProfile") .. "/.vim/undodir"
+-- vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
 vim.opt.undofile = true
 
 vim.opt.hlsearch = false
@@ -139,14 +141,16 @@ require('lazy').setup({
   -- Detect tabstop and shiftwidth automatically
   'tpope/vim-sleuth',
 
-  'mbbill/undotree'
+  'mbbill/undotree',
 
-  'folke/zen-mode.nvim'
+  'folke/zen-mode.nvim',
+
+  "phaazon/hop.nvim",
 
   {
     'folke/trouble.nvim',
     icons = false,
-  }
+  },
 
     -- 'tpope/vim-surround'
   {
@@ -158,7 +162,7 @@ require('lazy').setup({
                 -- Configuration here, or leave empty to use defaults
             })
         end
-    }
+    },
 
   -- NOTE: This is where your plugins related to LSP can be installed.
   --  The configuration is done below. Search for lspconfig to find it below.
@@ -276,7 +280,7 @@ require('lazy').setup({
     dependencies = {
       'nvim-treesitter/nvim-treesitter-textobjects',
     },
-    build = ':TSUpdate',
+    -- build = ':TSUpdate',
   },
 
   -- require 'my.awesome.plugin',
@@ -331,7 +335,7 @@ end, { desc = '[/] Fuzzily search in current buffer' })
 vim.keymap.set("n", "<leader>xq", "<cmd>TroubleToggle quickfix<cr>",
   {silent = true, noremap = true}
 )
-vim.keymap.set('n', '<C-p>', builtin.git_files, {})
+vim.keymap.set('n', '<C-p>', require('telescope.builtin').git_files, {})
 vim.keymap.set('n', '<leader>gf', require('telescope.builtin').git_files, { desc = 'Search [G]it [F]iles' })
 vim.keymap.set('n', '<leader>ff', require('telescope.builtin').find_files, { desc = '[F]ind [F]iles' })
 vim.keymap.set('n', '<leader>sf', require('telescope.builtin').find_files, { desc = '[S]earch [F]iles' })
