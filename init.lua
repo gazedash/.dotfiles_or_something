@@ -148,6 +148,18 @@ require('lazy').setup({
     icons = false,
   }
 
+    -- 'tpope/vim-surround'
+  {
+        "kylechui/nvim-surround",
+        version = "*", -- Use for stability; omit to use `main` branch for the latest features
+        event = "VeryLazy",
+        config = function()
+            require("nvim-surround").setup({
+                -- Configuration here, or leave empty to use defaults
+            })
+        end
+    }
+
   -- NOTE: This is where your plugins related to LSP can be installed.
   --  The configuration is done below. Search for lspconfig to find it below.
   {
@@ -471,6 +483,18 @@ local servers = {
 
 -- Setup neovim lua configuration
 require('neodev').setup()
+
+-- jump, search
+require('hop').setup()
+
+local hop = require('hop')
+
+vim.keymap.set("n", "<C-;>", "<cmd>HopPattern<cr>", { noremap = true })
+vim.keymap.set("v", "<C-;>", "<cmd>HopPattern<cr>", { noremap = true })
+-- vim.keymap.set   ("n", "<leader>hw", "<cmd>lua require'hop'.hint_words()<cr>", { noremap = true })
+vim.keymap.set("n", "<leader>hw", function ()
+    hop.hint_words()
+end, { noremap = true })
 
 -- nvim-cmp supports additional completion capabilities, so broadcast that to servers
 local capabilities = vim.lsp.protocol.make_client_capabilities()
