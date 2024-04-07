@@ -20,6 +20,7 @@
   "nvim-treesitter-textobjects": { "branch": "master", "commit": "52f1f3280d9092bfaee5c45be5962fabee3d9654" },
   "onedark.nvim": { "branch": "master", "commit": "cae5fdf035ee92c407a29ee2ccfcff503d2be7f1" },
   "plenary.nvim": { "branch": "master", "commit": "267282a9ce242bbb0c5dc31445b6d353bed978bb" },
+  "telescope-fzf-native.nvim": { "branch": "main", "commit": "9bc8237565ded606e6c366a71c64c0af25cd7a50" },
   "telescope.nvim": { "branch": "0.1.x", "commit": "776b509f80dd49d8205b9b0d94485568236d1192" },
   "trouble.nvim": { "branch": "main", "commit": "0e6703c1d37d2d34ed029ab54f9bd66e3f2ecbf7" },
   "undotree": { "branch": "master", "commit": "0e11ba7325efbbb3f3bebe06213afa3e7ec75131" },

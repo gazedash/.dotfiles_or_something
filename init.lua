@@ -155,6 +155,7 @@ vim.keymap.set("n", "<Esc>", CloseAllFloatingWindows)
 
 vim.keymap.set("n", "<C-X>", function () vim.cmd(":Lazy") end)
 
+vim.keymap.set('n', '<C-q>', require('telescope.builtin').live_grep, { desc = '[S]earch by [G]rep' })
 -- Keymaps for better default experience
 -- See `:help vim.keymap.set()`
 vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
